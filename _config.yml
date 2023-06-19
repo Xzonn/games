@@ -1,0 +1,62 @@
+author: Xzonn
+name: Xzonn的游戏记录
+timezone: Asia/Shanghai
+url: https://xzonn.top/games
+image_cdn: https://images.xzonn.top/github
+global_static_cdn: https://xzonn.top
+defaults:
+  - values:
+      layout: "default"
+      no_sidenav: true
+  - scope:
+      type: "posts"
+    values:
+      permalink: /:year/:title.html
+exclude:
+  - Debug/
+  - node_modules/
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - jsconfig.json
+  - README.md
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    css_class: highlight
+plugins:
+  - jekyll-feed
+  - jekyll-relative-links
+  - jekyll-sass-converter
+  - jekyll-sitemap
+repository: Xzonn/games
+sass:
+  sass_dir: assets/css
+  load_paths: 
+    - assets/css
+    - node_modules
+  sourcemap: always
+  style: compressed
+relative_links:
+  collections: true
+algolia:
+  application_id: "EMOU93HL1O"
+  index_name: "xzonn_games"
+  nodes_to_index: "p,h2,h3"
+  settings:
+    searchableAttributes:
+      - title
+      - unordered(tags)
+      - unordered(content)
+      - unordered(screenshot_captions)
+    attributesToHighlight:
+      - content
+      - tags
+      - title
+      - screenshot_captions
+  files_to_exclude:
+    - index.html
+    - search.html
+    - third_party.md

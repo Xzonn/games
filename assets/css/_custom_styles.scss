@@ -1,0 +1,352 @@
+/* */
+:root {
+  --primary: #{$primary};
+  --primary-light: #{$primary-light};
+  --primary-lighter: #{$primary-lighter};
+  --primary-lightest: #{$primary-lightest};
+  --primary-dark: #{$primary-dark};
+  --primary-darker: #{$primary-darker};
+  --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
+  --secondary-lighter: #{$secondary-lighter};
+  --secondary-lightest: #{$secondary-lightest};
+  --secondary-dark: #{$secondary-dark};
+  --secondary-darker: #{$secondary-darker};
+}
+
+body {
+  background-color: var(--primary-lighter); /* 什么几把玩意 $body-bg被一堆玩意调用 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 字体 */
+.font-hei-ti {
+  font-family: $font-family-sans-serif;
+}
+
+text, tspan {
+  font-family: $font-family-sans-serif !important;
+}
+
+[lang="en"], [lang="en"] .biaodian {
+  font-family: $font-family-sans-serif-latin;
+}
+
+.biaodian {
+  font-family: $font-family-sans-serif-chinese;
+}
+
+em, blockquote, .font-song-ti {
+  font-family: $font-family-serif;
+
+  .biaodian {
+    font-family: $font-family-serif-chinese;
+  }
+
+  &[lang="en"], [lang="en"], &[lang="en"] .biaodian, [lang="en"] .biaodian {
+    font-family: $font-family-serif;
+  }
+}
+
+.font-mono {
+  font-family: $font-family-monospace;
+}
+
+/* Han.js */
+h-hws, h-hws[hidden] {
+  font-size: 50%;
+  display: inline !important;
+  user-select: none;
+
+  &.quote-inner, &.quote-outer:lang(zh-Hans), &.quote-outer:lang(zh-CN) {
+    display: none !important;
+  }
+}
+
+code, kbd, samp, pre, svg, .MathJax {
+  h-hws, h-hws[hidden] {
+    display: none !important;
+  }
+}
+
+/* 块元素 */
+/* 段落 */
+article > p {
+  text-indent: 2em;
+  text-align: justify;
+
+  &.text-left, &.text-right, &.text-center, * {
+    text-indent: initial;
+  }
+}
+
+/* 引用 */
+blockquote {
+  padding: ($line-height-base * $font-size-base / 4) ($line-height-base * $font-size-base / 2);
+  margin: 0 0 ($line-height-base * $font-size-base / 2);
+  border-left: 4px solid var(--secondary-dark);
+  background-color: rgba($body-bg, 0.2);
+  @extend .br;
+
+  > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 列表 */
+ul, ol {
+  padding-left: 2em;
+  text-align: justify;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin: 0 auto;
+  padding-left: 1em;
+}
+
+/* 表格 */
+th {
+  text-align: center;
+}
+
+caption {
+  clear: both;
+  text-align: center;
+
+  .caption-figure {
+    caption-side: bottom;
+  }
+}
+
+.table-responsive {
+  @extend .br;
+}
+
+.table {
+  caption-side: top; /* 神TM表注放下面 */
+  text-align: center;
+  border-style: solid;
+  border-width: calc(#{$table-border-width} * 2) 0;
+
+  > thead {
+    > tr {
+      > th {
+        border-bottom-width: calc(#{$table-border-width} * 2);
+      }
+    }
+  }
+
+  > tbody {
+    vertical-align: middle; /* 神TM表格顶端对齐 */
+    > tr {
+      > th, > td {
+        vertical-align: inherit;
+      }
+    }
+  }
+
+  &.float-left, &.float-right {
+    width: initial;
+  }
+}
+
+/* 代码 */
+code {
+  background-color: rgba($body-bg, 0.2);
+}
+
+pre {
+  clear: both;
+  overflow: auto;
+  padding: 0;
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid var(--secondary-dark);
+  border-left-width: 4px;
+  padding: 1rem;
+  @extend .br;
+
+  code {
+    background-color: transparent;
+  }
+}
+
+/* 图片 */
+img {
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+canvas {
+  display: block;
+}
+
+figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto  $paragraph-margin-bottom auto;
+  padding: $font-size-base;
+  width: max-content;
+  height: auto;
+  max-width: 100%;
+  border: 1px solid $secondary;
+  background-color: var(--secondary-lighter);
+  color: var(--secondary-dark);
+  text-align: center;
+  font-size: $font-size-base * 0.8;
+  @extend .br;
+
+  & + & {
+    margin-top: -calc($paragraph-margin-bottom * 0.5);
+  }
+
+  img {
+    display: block;
+    box-sizing: content-box;
+    margin: 0 auto;
+    background-color: transparent;
+    transition: background-color 0.5s;
+
+    &:hover {
+      background-color: #fff;
+    }
+  }
+
+  figcaption {
+    clear: both;
+    margin-bottom: -$font-size-base;
+  }
+
+  a.figure-link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    &::before {
+      content: normal;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  figure.figure-left {
+    float: left;
+    clear: left;
+    margin-right: 1rem;
+  }
+
+  figure.figure-right {
+    float: right;
+    clear: right;
+    margin-left: 1rem;
+  }
+}
+
+/* 行内元素 */
+/* 链接 */
+a[target="_blank"] {
+  text-decoration: underline;
+
+  &::before {
+    display: inline-block;
+    margin: 0 5px;
+    width: 11px;
+    height: 11px;
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%232196f3%22%20viewBox%3D%220%200%201650%201650%22%3E%3Cpath%20d%3D%22M825%200C368%200%200%20368%200%20825s368%20825%20825%20825%20825-369%20825-825S1281%200%20825%200zm253%20883c0%203-3%203-6%206%200%200-264%20264-300%20297-38%2033-99%2033-138%200-36-30-41-80-11-116l11-11%20237-234-236-234c-36-30-41-80-11-115l11-11c38-33%2099-33%20138%200%2036%2033%20300%20297%20300%20297%2033%2033%2038%2085%205%20121z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E') !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    content: '';
+  }
+
+  &::after {
+    display: inline-block;
+    margin: 0 5px;
+    width: 12px;
+    height: 9px;
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23888%22%20viewBox%3D%220%200%2012%209%22%3E%3Cpath%20d%3D%22M3%2C0v6h9v-6Zm1%2C2h7v3h-7ZM0%2C3v6H9V7H8v1H1V5h1V3Z%22%2F%3E%3C%2Fsvg%3E') !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    content: '';
+  }
+}
+
+.plainlinks {
+  & a, a & {
+    text-decoration: none;
+
+    &::before, &::after {
+      content: normal;
+      display: none;
+    }
+  }
+}
+
+/* 辅助样式 */
+/* 圆角 */
+@mixin br() {
+  border-radius: 4px;
+}
+
+.br {
+  @include br;
+}
+
+/* 表格排序 */
+@use "../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+.tablesorter-headerUnSorted, .tablesorter-headerAsc, .tablesorter-headerDesc {
+  &:before {
+    font-family: "bootstrap-icons";
+    float: right;
+    line-height: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.tablesorter-headerUnSorted:not(.sorter-false) {
+  @extend .bi-arrow-down-up;
+}
+
+.tablesorter-headerAsc:not(.sorter-false) {
+  @extend .bi-sort-down-alt;
+}
+
+.tablesorter-headerDesc:not(.sorter-false) {
+  @extend .bi-sort-down;
+}
+
+
+/* 对齐 */
+@use "../../node_modules/bootstrap/scss/utilities";
+.text-left {
+  @extend .text-start;
+}
+
+.text-right {
+  @extend .text-end;
+}
+
+
+/* 视频 */
+.youtube-video, .bilibili-video {
+  margin: 15px auto;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+  
+.youtube-video-iframe, .bilibili-video-iframe {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  @extend .br;
+}

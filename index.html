@@ -1,0 +1,30 @@
+---
+js:
+- tags
+title: Xzonn的游戏记录
+---
+{% assign tags = site.posts | render_tags %}{% assign keys = "" | get_tag_keys %}{% assign keys_chinese = "" | get_tag_keys_chinese %}{% for key in keys %}<ul class="ga-taglist nav nav-pills">
+  <li class="nav-item"><a class="nav-link disabled">{{ keys_chinese[forloop.index0] }}</a></li>
+  <li class="nav-item" id="tag-" data-sort="{{ site.posts.size }}"><a class="nav-link active" href="#">全部<span class="badge">{{ site.posts.size }}</span></a></li>{% for tag in tags[key] %}
+  <li class="nav-item" id="tag-{{ tag[0] }}" data-sort="{{ tag[1] }}"><a class="nav-link" href="#{{ tag[0] }}">{{ tag[0] }}<span class="badge">{{ tag[1] }}</span></a></li>{% endfor %}
+</ul>{% endfor %}
+<div class="table-responsive">
+  <table class="ga-postlist table tablesorter">
+    <thead>
+      <tr><th>标题</th><th>发售日期</th><th>感想日期</th><th>游玩平台</th><th>购买方式</th><th>游戏状态</th><th>游戏时长</th><th>游戏系列</th><th>游戏类型</th></tr>
+    </thead>
+    <tbody>{% assign posts = site.posts | sort: "date" | sort: "comment_date" | reverse %}{% for post in posts %}
+      <tr data-tags="{% assign _ = false %}{% for key in keys %}{% if post[key] %}{% if _ %},{% else %}{% assign _ = true %}{% endif %}{{ post[key] }}{% endif %}{% endfor %}">
+        <td><a href="{{ post.url | relative_url }}">{{ post.title }}</a></td>
+        <td>{{ post.date | date: "%Y-%m-%d" }}</td>
+        <td>{{ post.comment_date | default: "-" | date: "%Y-%m-%d" }}</td>
+        <td>{{ post.platform | default: "-" }}</td>
+        <td>{{ post.store | default: "-" }}</td>
+        <td>{{ post.status | default: "-" }}</td>
+        <td>{{ post.hours | default: "-" | hours }}</td>
+        <td>{{ post.franchise | default: "-" }}</td>
+        <td>{{ post.genre | default: "-" }}</td>
+      </tr>{% endfor %}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,39 @@
+    <!-- Common Heading Start -->
+    <div class="ga-heading">
+      <div class="container">{% if page.screenshot_count and page.screenshot_count > 0 %}
+        <div id="ga-carousel" class="ga-carousel carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">{% for screenshot_index in (1..page.screenshot_count) %}
+            <button type="button" data-bs-target="#ga-carousel" data-bs-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active"{% endif %}></button>{% endfor %}
+          </div>
+          <div class="carousel-inner">{% for screenshot_index in (1..page.screenshot_count) %}{% assign caption = page.screenshot_captions[screenshot_index] | default: "" %}
+            <div class="carousel-item{% if forloop.first %} active{% endif %}">
+              <img src="{{ "/assets/" | relative_url }}images{{ page.id }}/{{ screenshot_index | prepend: "0000" | slice: -4, 4 }}.webp" decoding="async" loading="lazy" {% if caption != "" %} alt="{{ caption }}">
+              <div class="carousel-caption">
+                <p>{{ caption }}</p>
+              </div{% endif %}>
+            </div>{% endfor %}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#ga-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#ga-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>{% endif %}{% assign root = "/" | relative_url %}
+        <div class="ga-heading-text">{% if page.title %}
+          <h1>{{ page.title }}</h1>{% endif %}{% if page.info %}
+          <p class="ga-meta-summary">{{ page.info }}</p>{% endif %}{% if page.date or page.platform or page.store or page.status or page.tags.size > 0 %}
+          <div class="ga-meta-infomation">{% if page.date %}
+            <div class="ga-meta-released" title="发售日期"><i class="bi bi-shop"></i>{{ page.date | date: "%Y-%m-%d" }}</div>{% endif %}{% if page.comment_date %}
+            <div class="ga-meta-comment" title="感想日期"><i class="bi bi-calendar-check"></i>{{ page.comment_date | date: "%Y-%m-%d" }}</div>{% endif %}{% if page.platform %}
+            <div class="ga-meta-platform" title="游玩平台"><i class="bi bi-controller"></i><a href="{{ root }}#{{ page.platform }}">{{ page.platform }}</a></div>{% endif %}{% if page.store %}
+            <div class="ga-meta-store" title="购买方式"><i class="bi bi-cart3"></i><a href="{{ root }}#{{ page.store }}">{{ page.store }}</a></div>{% endif %}{% if page.status %}
+            <div class="ga-meta-status" title="游戏状态"><i class="bi bi-hourglass-split"></i><a href="{{ root }}#{{ page.status }}">{{ page.status }}</a></div>{% endif %}{% if page.hours %}
+            <div class="ga-meta-status" title="游戏时长"><i class="bi bi-clock-history"></i>{{ page.hours | hours }}</div>{% endif %}{% if page.franchise %}
+            <div class="ga-meta-status" title="游戏系列"><i class="bi bi-journals"></i><a href="{{ root }}#{{ page.franchise }}">{{ page.franchise }}</a></div>{% endif %}{% if page.genre %}
+            <div class="ga-meta-status" title="游戏类型"><i class="bi bi-tag"></i><a href="{{ root }}#{{ page.genre }}">{{ page.genre }}</a></div>{% endif %}
+          </div>{% endif %}
+        </div>
+      </div>
+    </div>
+    <!-- Common Heading End -->
