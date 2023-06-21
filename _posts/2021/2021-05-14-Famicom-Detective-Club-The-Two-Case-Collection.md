@@ -2,6 +2,7 @@
 comment_date: 2021-07-12
 genre: 文字冒险
 platform: Switch
+screenshot_count: 33
 status: 已通关
 store: 卡带
 title: Famicom侦探俱乐部 消失的继承人·站在身后的少女
