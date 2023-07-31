@@ -25,7 +25,7 @@
           <p class="ga-meta-summary">{{ page.info }}</p>{% endif %}{% if page.date or page.platform or page.store or page.status or page.tags.size > 0 %}
           <div class="ga-meta-infomation">{% if page.date %}
             <div class="ga-meta-released" title="发售日期"><i class="bi bi-shop"></i>{{ page.date | date: "%Y-%m-%d" }}</div>{% endif %}{% if page.comment_date %}
-            <div class="ga-meta-comment" title="感想日期"><i class="bi bi-calendar-check"></i>{{ page.comment_date | date: "%Y-%m-%d" }}</div>{% endif %}{% if page.platform %}
+            <div class="ga-meta-comment" title="感想日期"><i class="bi bi-calendar-check"></i><time datetime="{{ page.comment_date | date: "%F" }}">{{ page.comment_date | date: "%Y-%m-%d" }}</time></div>{% endif %}{% if page.platform %}
             <div class="ga-meta-platform" title="游玩平台"><i class="bi bi-controller"></i><a href="{{ root }}#{{ page.platform }}">{{ page.platform }}</a></div>{% endif %}{% if page.store %}
             <div class="ga-meta-store" title="购买方式"><i class="bi bi-cart3"></i><a href="{{ root }}#{{ page.store }}">{{ page.store }}</a></div>{% endif %}{% if page.status %}
             <div class="ga-meta-status" title="游戏状态"><i class="bi bi-hourglass-split"></i><a href="{{ root }}#{{ page.status }}">{{ page.status }}</a></div>{% endif %}{% if page.hours %}
