@@ -5,7 +5,7 @@ genre: 角色扮演
 hours: 58
 platform: Windows
 screenshot_count: 9
-status: 游戏中
+status: 已通关
 store: XGPU
 theme_color: "#da0001"
 title: 女神异闻录5 皇家版

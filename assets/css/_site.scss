@@ -515,6 +515,13 @@
   display: none !important;
 }
 
+.ga-search-hits {
+  mark {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .ga-search-list-tags {
   ul {
     display: flex;

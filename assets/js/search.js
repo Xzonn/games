@@ -44,6 +44,7 @@ $(function () {
             )
             .appendTo(defineList);
 
+        Han(defineList[0]).render();
         return defineList[0].outerHTML;
       };
 
@@ -57,6 +58,7 @@ $(function () {
             "submit": "btn btn-primary",
             "reset": "btn btn-primary",
           },
+          searchAsYouType: false,
         })
       );
       search.addWidget(
@@ -64,6 +66,7 @@ $(function () {
           container: ".ga-search-hits",
           templates: {
             item: hitTemplate,
+            empty: "无结果",
           },
         })
       );
@@ -75,4 +78,27 @@ $(function () {
       search.start();
     });
   });
+
+  let submitTimeout;
+  $(".ga-search-searchbar")
+    .on("keyup", (e) => {
+      if (!$(e.target).is(".ais-SearchBox-input")) {
+        return;
+      }
+      if (submitTimeout) {
+        clearTimeout(submitTimeout);
+      }
+      submitTimeout = setTimeout(() => {
+        $(".ais-SearchBox-submit").trigger("click");
+        $(".ais-SearchBox-input")[0].focus();
+      }, 500);
+    })
+    .on("keydown", (e) => {
+      if (!$(e.target).is(".ais-SearchBox-input")) {
+        return;
+      }
+      if (submitTimeout) {
+        clearTimeout(submitTimeout);
+      }
+    });
 });
