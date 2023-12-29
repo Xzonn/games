@@ -2,7 +2,7 @@
     <meta charset="utf-8"/>
     <meta name="author" content="Xzonn"/>
     <meta name="description" content="{{ page.title }} - 来自{{ site.name }}"/>
-    <meta name="generator" content="jekyll 4.0.0"/>
+    <meta name="generator" content="jekyll 3.9"/>
     <meta name="keywords" content="Xzonn,{% if page.tags %},{{ page.tags | join: "," }}{% endif %}"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="referrer" content="same-origin"/>
@@ -23,9 +23,6 @@
       (function () {
         let style = document.getElementById("ga-local-storage-style"),
           sheet = style.sheet;
-        if (xzLocalStorage.noAd) {
-          sheet.insertRule(".google-auto-placed, .adsbygoogle { display: none !important; }");
-        }
       })();
     </script>
     <style>
@@ -42,9 +39,7 @@
     <link rel="stylesheet" href="{{ "/assets/" | relative_url }}css/style.css" />
     <script src="{{ "/assets/" | relative_url }}js/main.js"></script>{% for i in page.js %}
     <script src="{{ "/assets/" | relative_url }}js/{{ i }}.js"></script>{% endfor %}
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}</title>
-    <!-- Google -->
-    <script data-ad-client="ca-pub-8317643192080236" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>{% unless jekyll.environment == "development" %}
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}</title>{% unless jekyll.environment == "development" %}
     <!-- Baidu -->
     <script src="https://hm.baidu.com/hm.js?e51c63f6dc2ddbf35c41b08cd39eb20a" referrerpolicy="no-referrer-when-downgrade"></script>{% endunless %}
     <!-- Common Head End -->
