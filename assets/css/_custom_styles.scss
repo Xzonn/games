@@ -84,8 +84,8 @@ article > p {
 
 /* 引用 */
 blockquote {
-  padding: ($line-height-base * $font-size-base / 4) ($line-height-base * $font-size-base / 2);
-  margin: 0 0 ($line-height-base * $font-size-base / 2);
+  padding: calc($line-height-base * $font-size-base / 4) calc($line-height-base * $font-size-base / 2);
+  margin: 0 0 calc($line-height-base * $font-size-base / 2);
   border-left: 4px solid var(--secondary-dark);
   background-color: rgba($body-bg, 0.2);
   @extend .br;
@@ -295,7 +295,6 @@ a[target="_blank"] {
 }
 
 /* 表格排序 */
-@use "../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
 .tablesorter-headerUnSorted, .tablesorter-headerAsc, .tablesorter-headerDesc {
   &:before {
     font-family: "bootstrap-icons";
@@ -324,7 +323,6 @@ a[target="_blank"] {
 
 
 /* 对齐 */
-@use "../../node_modules/bootstrap/scss/utilities";
 .text-left {
   @extend .text-start;
 }
