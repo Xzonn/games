@@ -5,7 +5,7 @@ genre: 策略角色扮演
 hours: 19.5
 platform: Windows
 screenshot_count: 8
-status: 游戏中
+status: 已通关
 store: XGPU
 theme_color: "#fb1616"
 title: 女神异闻录5 战略版
