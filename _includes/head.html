@@ -33,7 +33,8 @@
         --primary-lightest: {{ page.theme_color | hex_lighten_to: 0.95 }};
         --primary-dark: {{ page.theme_color | hex_lighten_to: 0.35 }};
         --primary-darker: {{ page.theme_color | hex_lighten_to: 0.2 }};{% endif %}{% if page.screenshot_aspect_ratio %}
-        --screenshot-aspect-ratio: {{ page.screenshot_aspect_ratio }};{% endif %}
+        --screenshot-aspect-ratio: {{ page.screenshot_aspect_ratio }};{% endif %}{% if page.screenshot_width %}
+        --screenshot-width: {{ page.screenshot_width }}px;{% endif %}
       }
     </style>
     <link rel="stylesheet" href="{{ "/assets/" | relative_url }}css/style.css" />

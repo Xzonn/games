@@ -452,9 +452,10 @@
 /* Carousel */
 .ga-carousel {
   aspect-ratio: var(--screenshot-aspect-ratio, 16/9);
-  width: 100%;
+  width: var(--screenshot-width, 100%);
   height: auto;
   overflow: hidden;
+  margin: 0 auto;
   @extend .br;
 }
 
@@ -479,7 +480,7 @@
 
   img {
     aspect-ratio: var(--screenshot-aspect-ratio, 16/9);
-    width: 100%;
+    width: var(--screenshot-width, 100%);
     height: auto;
     object-fit: scale-down;
   }
