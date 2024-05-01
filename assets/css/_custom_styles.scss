@@ -332,15 +332,22 @@ a[target="_blank"] {
 }
 
 
-/* 视频 */
-.youtube-video, .bilibili-video {
+/* 视频&音频 */
+.youtube-video, .bilibili-video, .netease-music {
   margin: 15px auto;
+}
+
+.youtube-video, .bilibili-video {
   width: 100%;
   height: auto;
   aspect-ratio: 16/9;
 }
 
-.youtube-video-iframe, .bilibili-video-iframe {
+.netease-music {
+  width: 640px;
+}
+
+.youtube-video-iframe, .bilibili-video-iframe, .netease-music-iframe {
   display: block;
   margin: 0 auto;
   width: 100%;

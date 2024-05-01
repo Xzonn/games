@@ -10,7 +10,7 @@ store: XGPU
 theme_color: "#da0001"
 title: 女神异闻录5 皇家版
 ---
-<iframe style="width: 640px; height: 320px; border: 0; margin: 0 auto; padding: 0; display: block;" src="https://music.163.com/outchain/player?type=0&id=8491787808&auto=0&height=320"></iframe>
+{% include music.html netease="8491787808" %}
 
 久闻“P5天下第一”的说法，但我没有PS4，自然无缘感受。好在2022年6月财大气粗的微软终于把P5R带到了PC平台，还是首日XGP，让我也终于有机会体验到了这款游戏。不过，虽然我兴冲冲地早早地下载好了游戏，打开之后却发现世嘉的移植水平不咋地，连缩放倍率都没调整好，Steam版还能设置DPI为应用程序，MS Store版设置了也没用，除非把电脑缩放倍率调整到100%看起来才能不糊。我玩了一会就没了兴致，攻略完第一个殿堂就搁置了，直到2023年4月才重新捡起来打。
 
