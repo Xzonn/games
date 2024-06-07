@@ -3,9 +3,9 @@ comment_date: 2024-03-09
 genre: 文字冒险
 hours: 3.7
 platform: DS
+screenshot_aspect_ratio: 2/3
 screenshot_count: 3
 screenshot_width: 256
-screenshot_aspect_ratio: 2/3
 status: 已通关
 store: 卡带
 theme_color: "#2d4250"

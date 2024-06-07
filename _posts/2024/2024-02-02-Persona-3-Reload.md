@@ -5,8 +5,7 @@ franchise: 女神异闻录
 genre: 角色扮演
 hours: 54
 platform: Windows
-screenshot_count: 42
-screenshot_captions: 
+screenshot_captions:
   1: 谐音梗太多，所以截图数量也很多
   4: 谐音梗初露端倪
   9: 深得泉此方真传
@@ -23,6 +22,7 @@ screenshot_captions:
   34: 其实我早就知道了
   39: 一切都结束了
   41: 你是不是在找：《女神异闻录5》
+screenshot_count: 42
 status: 已通关
 store: XGPU
 theme_color: "#05b2f4"

@@ -4,7 +4,7 @@ franchise: 宝可梦
 genre: 角色扮演
 hours: 60
 platform: Switch
-screenshot_captions: 
+screenshot_captions:
   1: 标题Logo
   3: 你醒啦？这已经是几百年前的神奥地区了哦！快来选择你的宝可梦吧！
   5: 熟悉的构图

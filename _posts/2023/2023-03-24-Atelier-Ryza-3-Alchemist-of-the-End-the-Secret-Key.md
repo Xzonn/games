@@ -4,7 +4,7 @@ franchise: 炼金工房
 genre: 角色扮演
 hours: 46.2
 platform: Windows
-screenshot_captions: 
+screenshot_captions:
   1: 标题Logo
   4: 你们两个干脆结婚吧！
   5: 通关后桌上相框的特写

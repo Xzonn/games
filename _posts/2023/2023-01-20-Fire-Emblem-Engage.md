@@ -4,7 +4,7 @@ franchise: 火焰之纹章
 genre: 策略角色扮演
 hours: 47
 platform: Switch
-screenshot_captions: 
+screenshot_captions:
   2: 母子？母女？
   4: 你是我的神！
   6: 怪
