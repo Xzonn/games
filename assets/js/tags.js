@@ -15,9 +15,9 @@ $(() => {
         $(".ga-postlist > tbody > tr").each(function () {
           if (
             $(this)
-              .find("td")
-              .toArray()
-              .some((x) => x.innerText.trim() == hash)
+              .data("tags")
+              .split(",")
+              .some((x) => x == hash)
           ) {
             $(this).show();
           } else {
