@@ -1,5 +1,6 @@
 ---
 comment_date: 2021-07-12
+franchise: Famicom侦探俱乐部
 genre: 文字冒险
 platform: Switch
 screenshot_count: 33
