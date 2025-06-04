@@ -1,5 +1,6 @@
 ---
 comment_date: 2023-01-01
+franchise: AI：梦境档案
 genre: 文字冒险
 hours: 26
 platform: Windows
